@@ -30,6 +30,7 @@ VALUES
 (4, 'Harry Potter and the Sorcerer''s Stone', 3, 12.99, 30, 'In Stock'),
 (5, 'The Lord of the Rings: The Fellowship of the Ring', 4, 10.99, 40, 'In Stock');
 
+/* -------------------------- Add Product ---------------------------- */
 CREATE or REPLACE PROCEDURE  add_product(
   name text,
   TheLoaiID int,
@@ -59,6 +60,8 @@ BEGIN
 END;
 $$
 
-
+  --Insert
 CALL add_product('The Lord Dragon', 4, 13.99, 40, 'In Stock');
+
+
 
