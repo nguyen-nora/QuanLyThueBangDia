@@ -1,5 +1,5 @@
 CREATE TABLE TheLoai (
-  TheLoaiID int AUTO_INCREMENT,
+  TheLoaiID serial,
   Name text NOT NULL,
   PRIMARY KEY (TheLoaiID)
 );
@@ -62,6 +62,30 @@ $$
 
   --Insert
 CALL add_product('The Lord Dragon', 4, 13.99, 40, 'In Stock');
+
+/* -------------------------- Update Product ---------------------------- */
+CREATE OR REPLACE PROCEDURE update_product(
+    BangDiaID int,
+    name text,
+    TheLoaiID int,
+    price decimal(10,2),
+    quantity int,
+    status varchar(255)
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+
+    UPDATE BangDia
+    SET BangDia.name = name,
+        BangDia.TheLoaiID = TheLoaiID,
+        BangDia.price = price,
+        BangDia.quantity = quantity,
+        BangDia.status = status
+    WHERE BangDiaID.BangDiaID = BangDiaID;
+
+END;
+$$
 
 
 
