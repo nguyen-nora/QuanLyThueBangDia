@@ -39,4 +39,6 @@ G:\code\QuanLyThueBangDia\QuanLyThueBangDia\QuanLyThueBangDia\bin\Debug\System.T
 G:\code\QuanLyThueBangDia\QuanLyThueBangDia\QuanLyThueBangDia\bin\Debug\System.Threading.Tasks.Extensions.xml
 G:\code\QuanLyThueBangDia\QuanLyThueBangDia\QuanLyThueBangDia\bin\Debug\System.ValueTuple.xml
 G:\code\QuanLyThueBangDia\QuanLyThueBangDia\QuanLyThueBangDia\obj\Debug\QuanLyThueBangDia.csproj.CopyComplete
-G:\code\QuanLyThueBangDia\QuanLyThueBangDia\QuanLyThueBangDia\obj\Debug\QuanLyThueBangDia.PhieuThue.resources
+G:\code\QuanLyThueBangDia\QuanLyThueBangDia\QuanLyThueBangDia\obj\Debug\QuanLyThueBangDia.Category.resources
+G:\code\QuanLyThueBangDia\QuanLyThueBangDia\QuanLyThueBangDia\obj\Debug\QuanLyThueBangDia.Customer.resources
+G:\code\QuanLyThueBangDia\QuanLyThueBangDia\QuanLyThueBangDia\obj\Debug\QuanLyThueBangDia.DetailCustomer.resources

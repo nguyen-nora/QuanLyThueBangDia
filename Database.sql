@@ -29,10 +29,10 @@ CREATE TABLE PhieuThue (
 );
 
 CREATE TABLE ChiTietPhieuThue (
-	PhieuThueID int,
+	PhieuThueID int  REFERENCES PhieuThue (PhieuThueID),
 	BangDiaID int REFERENCES BangDia (BangDiaID),
 	SoLuong int,
-	FOREIGN KEY (PhieuThueID) REFERENCES PhieuThue (PhieuThueID)
+	PRIMARY KEY (PhieuThueID, BangDiaID)
 );
 
 INSERT INTO ChiTietPhieuThue VALUES (1, 3, 1);
@@ -59,7 +59,7 @@ INSERT INTO PhieuThue (Name, Phone, TradeD, PayD, Total, StatusPT) VALUES
 ('Jane Doe', '555-555-5555', '28-06-2023', '30-06-2023', 200.00, 'Rent');
 
 
-INSERT INTO ChiTietPhieuThue (PhieuThueID, BangDiaID) VALUES
+INSERT INTO ChiTietPhieuThue (PhieuThueID, BangDiaID, SoLuong) VALUES
 (1, 1, 1),
 (1, 2, 3),
 (2, 3, 2),
@@ -93,6 +93,36 @@ BEGIN
     INNER JOIN TheLoai t ON b.TheLoaiID = t.TheLoaiID;
 END;
 $$
+
+/* -------------------------- Detail Customer ---------------------------- */
+
+CREATE FUNCTION get_chitietphieuthue(PhieuThueID int) 
+RETURNS TABLE (
+  PhieuThue_Name text,
+  BangDia_Name text,
+  SoLuong int
+) 
+LANGUAGE plpgsql
+AS $$
+BEGIN
+  RETURN QUERY
+    SELECT
+      p.Name AS PhieuThue_Name,
+      b.Name AS BangDia_Name,
+      ct.SoLuong
+    FROM ChiTietPhieuThue ct
+	INNER JOIN BangDia b ON ct.BangDiaID = b.BangDiaID
+	INNER JOIN PhieuThue p ON ct.PhieuThueID = p.PhieuThueID
+	WHERE PhieuThueID = $1; 
+END;
+$$
+
+CREATE TABLE ChiTietPhieuThue (
+	PhieuThueID int  REFERENCES PhieuThue (PhieuThueID),
+	BangDiaID int REFERENCES BangDia (BangDiaID),
+	SoLuong int,
+	PRIMARY KEY (PhieuThueID, BangDiaID)
+);
 
 /* -------------------------- Add Product ---------------------------- */
 CREATE or REPLACE PROCEDURE  add_product(
@@ -322,7 +352,7 @@ $$
 CALL update_phieuthue(10, 'John Doe', '123-456-7890', '2023-05-27', '2023-06-03', 100.00, 'Pending');
 
 /* -------------------------- Delete PhieuThue ---------------------------- */
-CREATE OR REPLACE PROCEDURE delete_category(phieuthue_id int)
+CREATE OR REPLACE PROCEDURE delete_phieuthue(phieuthue_id int)
 LANGUAGE plpgsql
 AS $$
 BEGIN

@@ -109,25 +109,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Category.Designer.cs">
+      <DependentUpon>Category.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customer.Designer.cs">
+      <DependentUpon>Customer.cs</DependentUpon>
+    </Compile>
     <Compile Include="DBoard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DBoard.Designer.cs">
       <DependentUpon>DBoard.cs</DependentUpon>
     </Compile>
-    <Compile Include="PhieuThue.cs">
+    <Compile Include="DetailCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PhieuThue.Designer.cs">
-      <DependentUpon>PhieuThue.cs</DependentUpon>
+    <Compile Include="DetailCustomer.Designer.cs">
+      <DependentUpon>DetailCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Category.resx">
+      <DependentUpon>Category.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer.resx">
+      <DependentUpon>Customer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DBoard.resx">
       <DependentUpon>DBoard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PhieuThue.resx">
-      <DependentUpon>PhieuThue.cs</DependentUpon>
+    <EmbeddedResource Include="DetailCustomer.resx">
+      <DependentUpon>DetailCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

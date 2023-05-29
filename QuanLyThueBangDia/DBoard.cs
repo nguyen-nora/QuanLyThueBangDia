@@ -130,7 +130,7 @@ namespace QuanLyThueBangDia
             comm.Parameters.AddWithValue("@phieuthueid", id);
             comm.Parameters.AddWithValue("@bangdiaid", BangDiaID);
             comm.Parameters.AddWithValue("@soluong", d);
-
+            
             //
             try
             {
@@ -511,7 +511,8 @@ namespace QuanLyThueBangDia
                     if (int.Parse(dgvCart.Rows[i].Cells[0].Value.ToString()) == int.Parse(dgvCart.Rows[j].Cells[0].Value.ToString()))
                     {
                         d++;
-                        MessageBox.Show(i.ToString());
+                        //MessageBox.Show(dgvCart.Rows[i].Cells[0].Value.ToString());
+                        //MessageBox.Show(dgvCart.Rows[j].Cells[0].Value.ToString());
                     }
                     else
                     {
@@ -520,7 +521,7 @@ namespace QuanLyThueBangDia
                         d = 1;
                     }
                 }
-                if (d == 1)
+                if (dgvCart.RowCount != 0)
                 {
                     int i = dgvCart.RowCount - 2;
                     AddCTPhieuThue(i, id, d);
@@ -533,10 +534,10 @@ namespace QuanLyThueBangDia
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Create a new instance of the form.
-            PhieuThue phieuThue = new PhieuThue();
+            Customer cus = new Customer();
 
             // Show the form.
-            phieuThue.Show();
+            cus.Show();
 
         }
     }
